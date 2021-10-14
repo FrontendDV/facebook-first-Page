@@ -1,0 +1,260 @@
+// bases classes
+$blue-color : #4267B2;
+$button-color : #33508a;
+$grey-color : #c1c2c4;
+$black-color: rgb(61, 61, 61);
+$white-color: #FFF;
+$margin-center : 0 auto;
+$font-family : SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+
+// fonts
+$extrasmall: 12px;
+$size01 : 14px;
+$size02 : 17px;
+$size03 : 20px;
+$size04 : 35px;
+$size05 : 40px;
+$weight01 : 400;
+$weight02 : 500;
+$weight03 : 700;
+$weight04 : 900;
+
+// Size
+$pixel10: 10px;
+$pixel20: 20px;
+$pixel30: 30px;
+$pixel40: 40px;
+$pixel50: 50px;
+$pixel60: 60px;
+
+// Private classes
+%container{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+%flex{
+    display: flex;    
+}
+
+
+// Mixines
+@mixin flex-content($horizontal, $vertical){
+    justify-content: $horizontal;
+    align-items:$vertical ;
+
+}
+
+
+
+// Main styles
+body {
+    font-family: $font-family ;
+    header {
+        background: $blue-color ;
+        .header-div {
+           @extend %container;
+           @extend %flex;
+           @include flex-content(space-between,center );
+           padding: $pixel10;
+        }
+        .logo{
+            color: $white-color;
+            font-size: $size05;
+            font-weight: $weight04;
+            
+        }
+        .form-box{
+            @extend %flex;
+            @include flex-content(space-between,center );
+            .input-box{
+                display: flex;
+                flex-direction: column;
+                margin-left: $size01;
+                color: $white-color;
+                font-size: $size01;
+                font-weight: $weight02;
+                .checkbox{
+                    margin: 0 2px;
+                }
+                .check-box{
+                    display: flex;
+                    flex-direction:row;
+                    align-items: center;
+                    margin-top: 9px;
+                    
+                    
+                    p{
+                        color: $grey-color;
+                        font-size: $extrasmall;
+                    }
+    
+                }
+                .input01{
+                    border: none;
+                    border-radius: 1px;
+                    margin-top: 5px;
+                    width: 150px;
+                    height: $pixel20;
+                }
+                .forget{
+                    color: $grey-color;
+                    margin-top: $pixel10;
+                    font-size: $extrasmall;
+                    
+                }
+            }
+            .button{
+                @include flex-content(center,center );
+                @extend %flex;
+                padding: $pixel10 $pixel20;
+                background: $button-color;
+                margin-left: $pixel20;
+                box-shadow: 0px 1px 5px;
+                border-radius: 5px;
+                a{
+                    color: $white-color;
+                    font-size: $size01;
+                    font-weight: $weight03;
+                }
+            }
+        }
+    }
+    .wraper{
+        @extend %container;
+        @extend %flex;
+        @include flex-content(space-between, none );
+        margin-top: $pixel30;
+        .first{
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin-top: $pixel40;
+            h1{
+                color: $button-color;
+                font-size: $size03;
+                font-weight: 600;
+                letter-spacing: 0.7px;
+            }
+            .image img{
+                width: 100%;
+            }
+        }
+        .second{
+            display: flex;
+            flex-direction: column;
+            h1{
+                font-size: 40px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: $black-color;
+            }
+            p{
+                font-size: $size03;
+                font-weight: $weight02;
+                color:$black-color;
+                opacity: 0.8;
+                margin-bottom: $pixel30;
+            }
+            .second-input{
+                display: flex;
+                flex-direction: column;
+                .first-name-input{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    input{
+                        width: 49%;
+                        padding: $pixel10;
+                        border-radius: 3px;
+                        border: 1px solid $grey-color;
+                        font-size: 15px;
+                        font-weight: $weight03;
+                        opacity: 0.8;
+                        
+                    }
+                }
+                input{
+                    margin-top: $pixel10;
+                    padding: $pixel10;
+                    border-radius: 3px;
+                    border: 1px solid $grey-color;
+                    font-weight: $weight03;
+                    font-size: 15px;
+                    opacity: 0.8;
+                }
+            }
+            .birthday{
+                margin-top: $pixel20;
+                h3{
+                    font-size: $size02;
+                    font-weight: $weight03;
+                    letter-spacing: 0.3px;
+                }
+                    select{
+                        margin-top: $pixel10;
+                        outline: none;
+                        border: 1px solid $grey-color;
+                    }
+            }
+            .Gender{
+                display: flex;
+                margin-top: 10px;
+                label{
+                    margin-left: $pixel10;
+                }
+                .Radio{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    font-size: $size02;
+                    margin-top: $pixel10;
+                    font-weight: $weight03;
+                    
+                    
+                }
+                .Radio2{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    font-size: $size02;
+                    margin-top: $pixel10;
+                    font-weight: $weight03;
+                    margin-left: $pixel20;
+                    
+                }
+            }
+            .sign-up{
+                width: 250px;
+                padding: 20px;
+                margin-top: 50px;
+                border: none;
+                border-radius: 10px;
+                background: #42b72a;
+                color: $white-color;
+                font-size: $size02;
+                font-weight: $weight03;
+            }
+        }
+    }
+}
+
+
+
+
+@media (max-width:1024px){
+    %container{
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1000px){
+    %container{
+        max-width: 90%;
+    }
+    .first{
+        width: 45%;
+    }
+    .second{
+        width: 45%;
+    }
+}
